@@ -8,7 +8,7 @@ export const Layout = () => {
                 <div>Logo</div>
             </header>
             <nav className={s.appWrapper__nav}>
-                <a >profile</a>
+                <a >profileeeeee</a>
                 <a >message</a>
                 <a >Users</a>
             </nav>
