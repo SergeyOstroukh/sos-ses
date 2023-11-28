@@ -1,0 +1,12 @@
+.users {
+    padding: 30px;
+display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.user__page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
