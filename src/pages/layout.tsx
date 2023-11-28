@@ -1,5 +1,5 @@
 import s from './Layout.module.css'
-import {Outlet} from "react-router-dom";
+import {NavLink, Outlet} from "react-router-dom";
 
 export const Layout = () => {
     return (
@@ -8,9 +8,10 @@ export const Layout = () => {
                 <div>Logo</div>
             </header>
             <nav className={s.appWrapper__nav}>
-                <a >profile</a>
-                <a >message</a>
-                <a >Users</a>
+                <NavLink to="/profile">Profile</NavLink>
+                <NavLink to="/users">Users</NavLink>
+                <NavLink to="/friends">Friends</NavLink>
+                <NavLink to="/messages">Messages</NavLink>
             </nav>
             <div className={s.appWrapper__content}>
                 <Outlet />

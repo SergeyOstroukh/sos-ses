@@ -1,6 +1,7 @@
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import {Layout} from "../pages/Layout.tsx";
 import {Users} from "../components/users/Users.tsx";
+import {Friends} from "../components/friends/Friends.tsx";
+import {Layout} from "../pages/layout.tsx";
 
 
 const router = createBrowserRouter([
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
                      {
                         path: 'users',
                         element: <Users />,
+                    },
+                    {
+                        path: 'friends',
+                        element: <Friends />,
                     },
                     // {
                     //     path: 'profile',

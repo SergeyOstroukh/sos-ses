@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import {Button, CardActionArea, CardActions} from '@mui/material';
 import {Users} from "../../../types/userTypes.ts";
 import s from './UserCard.module.css'
-import {useFollowUserMutation} from "../../../services/usersApi.ts";
+import {useFollowUserMutation, useUnFollowUserMutation} from "../../../services/usersApi.ts";
 
 type Props = {
     user: Users
@@ -13,6 +13,7 @@ type Props = {
 export const UserCard = (props: Props) => {
     const userImg = props.user.photos && props.user.photos.small ? props.user.photos.small : props.user.photos && props.user.photos.large;
     const [followUser] = useFollowUserMutation()
+    const [unFollowUser] = useUnFollowUserMutation()
     return (
         <Card className={s.card} sx={{ width: 200, height: 300, }}>
             <CardActionArea>
@@ -32,11 +33,16 @@ export const UserCard = (props: Props) => {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button size="small" color="primary" onClick={()=>followUser(props.user.id)}>
-                    {
-                        props.user.followed ? 'Follow' : 'Unfollow'
-                    }
-                </Button>
+                {
+                    !props.user.followed?
+                        <Button size="small" color="primary" onClick={()=>followUser(props.user.id)}>
+                            follow
+                        </Button>
+                    :
+                        <Button size="small" color="primary" onClick={()=>unFollowUser(props.user.id)}>
+                            unFollow
+                        </Button>
+                }
             </CardActions>
         </Card>
     );
