@@ -2,22 +2,23 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
-import  {Users} from "../../../types/userTypes.ts";
+import {Button, CardActionArea, CardActions} from '@mui/material';
+import {Users} from "../../../types/userTypes.ts";
+import s from './UserCard.module.css'
 
 type Props = {
-    user:Users
+    user: Users
 }
-export const UserCard = (props:Props) => {
+export const UserCard = (props: Props) => {
     const userImg = props.user.photos && props.user.photos.small ? props.user.photos.small : props.user.photos && props.user.photos.large;
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card className={s.card} sx={{ width: 200, height: 300, }}>
             <CardActionArea>
                 <CardMedia
                     component="img"
                     height="140"
-                    image={userImg? userImg : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZUgLbcQKW5YFFy8FMlC-OqVp40csGZeWWJA&usqp=CAU'}
+                    image={userImg ? userImg : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZUgLbcQKW5YFFy8FMlC-OqVp40csGZeWWJA&usqp=CAU'}
                     alt="avatar"
                 />
                 <CardContent>
@@ -32,7 +33,7 @@ export const UserCard = (props:Props) => {
             <CardActions>
                 <Button size="small" color="primary">
                     {
-                        props.user.followed? 'Follow': 'Unfollow'
+                        props.user.followed ? 'Follow' : 'Unfollow'
                     }
                 </Button>
             </CardActions>

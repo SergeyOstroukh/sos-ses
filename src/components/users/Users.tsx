@@ -1,16 +1,17 @@
 import {useGetUserQuery} from "../../services/usersApi.ts";
-import {UserCard} from "./userCard/UserCard.tsx";
 import Pagination from '@mui/material/Pagination';
 import {useState} from "react";
+import {UserCard} from './userCard/UserCard.tsx'
+import s from './Users.module.css'
 
 export const Users = () => {
 
     const [params, setParams]=useState({
-        count: 10,
+        count: 12,
         page:1,
         term:""
     })
-    console.log(params)
+
     const {data:users} = useGetUserQuery(params)
     let total
     if (users){
@@ -18,16 +19,22 @@ export const Users = () => {
     }
 
     return (
-        <div>
-            {users?.items.map((el => {
-                return(
-                    <UserCard
-                        key={el.id}
-                        user={el}
-                    />
+        <div className={s.user__page}>
+            <div className={s.users}>
+                {users?.items.map((el => {
+                    return(
+                        <UserCard
+                            key={el.id}
+                            user={el}
+                        />
                     )
-            }))}
-            <Pagination siblingCount={5}  count={total} onChange={(_, page)=>setParams({...params, page: page})}/>
+                }))}
+            </div>
+            <Pagination
+                siblingCount={1}
+                count={total}
+                page={params.page}
+                onChange={(_, page)=>setParams({...params, page: page})}/>
         </div>
     );
 }
