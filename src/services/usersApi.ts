@@ -11,9 +11,19 @@ const usersApi = baseApi.injectEndpoints({
                         method: 'GET',
                         params: params
                     }
-                }
+                },
+                providesTags:['users']
+            }),
+            followUser: build.mutation<any,any>({
+                query: userId => {
+                    return {
+                        url: `/follow/${userId}`,
+                        method: 'POST',
+                    }
+                },
+                invalidatesTags:['users']
             }),
         }
     }
 })
-export const {useGetUserQuery} = usersApi
+export const {useGetUserQuery, useFollowUserMutation} = usersApi
