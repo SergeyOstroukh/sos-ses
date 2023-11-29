@@ -21,3 +21,27 @@ export type UsersRequest = {
     term?:string
 }
 
+
+export type ProfileResponse = {
+	aboutMe: string;
+	contacts: ContactsProfile;
+	lookingForAJob: boolean;
+	lookingForAJobDescription: string;
+	fullName: string;
+	userId: number;
+	photos: PhotosProfile;
+}
+export type ContactsProfile = {
+	facebook: string;
+	website: string;
+	vk: string;
+	twitter: string;
+	instagram: string;
+	youtube: string;
+	github: string;
+	mainLink: string;
+}
+export type PhotosProfile = {
+	small: string;
+	large: string;
+}

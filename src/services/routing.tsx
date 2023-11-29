@@ -2,6 +2,7 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {Users} from "../components/users/Users.tsx";
 import {Friends} from "../components/friends/Friends.tsx";
 import {Layout} from "../pages/layout.tsx";
+import {Profile} from "../components/profile/Profile.tsx";
 
 
 const router = createBrowserRouter([
@@ -20,14 +21,10 @@ const router = createBrowserRouter([
                         path: 'friends',
                         element: <Friends />,
                     },
-                    // {
-                    //     path: 'profile',
-                    //     element: <PersonalInformation />,
-                    // },
-                    // {
-                    //     path: 'cards',
-                    //     element: <Cards />,
-                    // },
+                    {
+                        path: 'profile/:userId',
+                        element: <Profile />,
+                    },
                 ],
             },
         ],
