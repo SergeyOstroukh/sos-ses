@@ -3,6 +3,7 @@ import {Users} from "../components/users/Users.tsx";
 import {Friends} from "../components/friends/Friends.tsx";
 import {Layout} from "../pages/layout.tsx";
 import {Profile} from "../components/profile/Profile.tsx";
+import {AuthLogin} from "../components/authLogin/AuthLogin.tsx";
 
 
 const router = createBrowserRouter([
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
                     {
                         path: 'profile/:userId',
                         element: <Profile />,
+                    },
+                    {
+                        path: 'login',
+                        element: <AuthLogin />,
                     },
                 ],
             },
