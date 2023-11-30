@@ -8,6 +8,8 @@
             "n c";
 }
 .appWrapper__header{
+    display: flex;
+    justify-content: space-between;
     background-color: #75e03f;
 
     grid-area: h;
@@ -19,6 +21,19 @@
     flex-direction: column;
     grid-area: n;
     align-items: center;
+}
+.header__section{
+    display: flex;
+    align-items: center;
+    border: 1px solid red;
+    width: 100%;
+
+}
+.header__menu{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid yellow;
+    width: 100%;
 }
 .appWrapper__content{
     background-color: #3fb1e0;

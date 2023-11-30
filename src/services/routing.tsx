@@ -1,14 +1,15 @@
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import {createBrowserRouter, Navigate, Outlet, RouterProvider} from "react-router-dom";
 import {Users} from "../components/users/Users.tsx";
 import {Friends} from "../components/friends/Friends.tsx";
 import {Layout} from "../pages/layout.tsx";
 import {Profile} from "../components/profile/Profile.tsx";
 import {AuthLogin} from "../components/authLogin/AuthLogin.tsx";
+import {useGetAuthMeQuery} from "./authApi/authMeApi.ts";
 
 
 const router = createBrowserRouter([
     {
-        element: '',
+        element: <PrivateRoutes/>,
         children: [
             {
                 path: '/',
@@ -26,22 +27,19 @@ const router = createBrowserRouter([
                         path: 'profile/:userId',
                         element: <Profile />,
                     },
-                    {
-                        path: 'login',
-                        element: <AuthLogin />,
-                    },
+
                 ],
             },
         ],
     },
     {
         path: '/',
-        element: '',
+        element: <Layout/>,
         children: [
-            // {
-            //     path: 'login',
-            //     element: <Login />,
-            // },
+            {
+                path: 'login',
+                element: <AuthLogin />,
+            },
             // {
             //     path: 'signup',
             //     element: <SignUpPage />,
@@ -73,8 +71,8 @@ const router = createBrowserRouter([
 export const Router = () => {
     return <RouterProvider router={router} />
 }
-// function PrivateRoutes() {
-//     const { error } = useGetMeQuery()
-//
-//     return error ? <Navigate to="login" /> : <Outlet />
-// }
+function PrivateRoutes() {
+    const { data, isLoading } = useGetAuthMeQuery({})
+        if(isLoading)return 'isLoading...'
+    return data?.resultCode === 1 ? <Navigate to="login" /> : <Outlet />
+}

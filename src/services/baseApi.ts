@@ -12,7 +12,7 @@ export const baseApi = createApi({
         },
         credentials: 'include',
     }),
-    tagTypes:['users'],
+    tagTypes:['users', 'authMe'],
     endpoints: () => ({
     }),
 })

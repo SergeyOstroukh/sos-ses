@@ -45,3 +45,14 @@ export type PhotosProfile = {
 	small: string;
 	large: string;
 }
+export type authMeResponse = {
+	data: authMeData;
+	messages: string[];
+	fieldsErrors: string[];
+	resultCode: number;
+}
+export type authMeData = {
+	id: number;
+	login: string;
+	email: string;
+}
