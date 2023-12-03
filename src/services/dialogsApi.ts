@@ -32,3 +32,4 @@ const dialogsApi = baseApi.injectEndpoints({
         }
     }
 })
+export const {useGetAllDialogsQuery,useSendMessageMyFriendMutation} = dialogsApi

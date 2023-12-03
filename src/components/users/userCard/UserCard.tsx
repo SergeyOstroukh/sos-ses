@@ -44,9 +44,6 @@ export const UserCard = (props: Props) => {
                         <Button size="small" color="primary" onClick={()=>followUser(props.user.id)}>
                             follow
                         </Button>
-                            {/*<Button size="small" color="primary" component={Link} to={`/Profile/${props.user.id}`}>*/}
-                            {/*    profile*/}
-                            {/*</Button>*/}
                         </div>
                     :
                         <Button size="small" color="primary" onClick={()=>unFollowUser(props.user.id)}>
