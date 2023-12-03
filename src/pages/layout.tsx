@@ -43,7 +43,7 @@ export const Layout = () => {
                 <NavLink to={`/profile/${data?.data.id}`}>Profile</NavLink>
                 <NavLink to="/users">Users</NavLink>
                 <NavLink to="/friends">Friends</NavLink>
-                <NavLink to="/messages">Messages</NavLink>
+                <NavLink to="/dialogs">Dialogs</NavLink>
             </nav>
             <div className={s.appWrapper__content}>
                 <Outlet />

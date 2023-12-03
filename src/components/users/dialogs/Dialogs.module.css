@@ -1,0 +1,11 @@
+.dialogs__usersPhoto{
+    width: 100px;
+}
+.dialogs__users {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.dialogs__wrapper{
+    display: flex;
+}

@@ -56,3 +56,51 @@ export type authMeData = {
 	login: string;
 	email: string;
 }
+export type sendMessage = {
+	userId: number
+	text: string
+}
+export type sendMessageDataResponce = {
+	message: {
+		addedAt: Date
+		body: string
+		deletedByRecipient: boolean
+		deletedBySender: boolean
+		distributionId: string|null
+		id: string
+		isSpam: boolean
+		recipientId: number
+		recipientName: string
+		senderId: number
+		senderName: string
+		translatedBody: string | number | null
+		viewed: boolean
+	}
+}
+export type sendMessageResponce = {
+	data: sendMessageDataResponce
+	fieldsErrors: string[]
+	messages: string[]
+	resultCode: number
+}
+export type allMessages = {
+	id: number;
+	userName: string;
+	hasNewMessages: boolean;
+	lastDialogActivityDate: string;
+	lastUserActivityDate: string;
+	newMessagesCount: number;
+	photos: Photos;
+}
+export type startChatting = {
+	data: unknown
+	fieldsErrors: string[]
+	messages: string[]
+	resultCode: number
+}
+
+export type dialogsWithFriendsParams = {
+	userId: number
+	page: number
+	count: number
+}
