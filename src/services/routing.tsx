@@ -5,7 +5,7 @@ import {Layout} from "../pages/layout.tsx";
 import {Profile} from "../components/profile/Profile.tsx";
 import {AuthLogin} from "../components/authLogin/AuthLogin.tsx";
 import {useGetAuthMeQuery} from "./authApi/authMeApi.ts";
-import {Dialog} from "@mui/material";
+
 import {Dialogs} from "../components/users/dialogs/Dialogs.tsx";
 
 
