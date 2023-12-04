@@ -44,7 +44,14 @@ const dialogsApi = baseApi.injectEndpoints({
                     }
                 },
             }),
+            dialogViewed: build.query<any, any>({
+                query: (messageId) => {
+                    return {
+                        url: `/dialogs/messages/${messageId}/viewed`,
+                    }
+                },
+            }),
         }
     }
 })
-export const {useGetAllDialogsQuery,useSendMessageMyFriendMutation, useGetDialogsByIdMutation, useGetDialogWithFriendQuery} = dialogsApi
+export const {useGetAllDialogsQuery,useSendMessageMyFriendMutation, useGetDialogsByIdMutation, useGetDialogWithFriendQuery, useDialogViewedQuery} = dialogsApi

@@ -8,6 +8,7 @@ export const Dialogs = () => {
     const {data, isLoading} = useGetAllDialogsQuery({})
     const [startChatting] = useGetDialogsByIdMutation()
     const [user, setUser] = useState(30449)
+
     const choseUser = (id: number) => {
         setUser(id)
         startChatting(id)
@@ -25,6 +26,9 @@ export const Dialogs = () => {
                              alt="photos"/>
                         {el.userName}
                         {el.id}
+                        {/*{*/}
+                        {/*    el.hasNewMessages && `have a new message ${<MessageBlock userId={el.id}/>}`*/}
+                        {/*}*/}
                     </div>
                 )
             })}</div>
