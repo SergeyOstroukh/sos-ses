@@ -36,7 +36,7 @@ const dialogsApi = baseApi.injectEndpoints({
                         body: {body: body.text},
                     }
                 },
-                providesTags: ['dialogs']
+                invalidatesTags: ['dialogs']
 
             }),
             getDialogWithFriend: build.query<any, Partial<dialogsWithFriendsParams>>({
@@ -60,7 +60,7 @@ const dialogsApi = baseApi.injectEndpoints({
                         method: "DELETE"
                     }
                 },
-                providesTags: ['dialogs']
+                invalidatesTags: ['dialogs']
             }),
         }
     }

@@ -1,13 +1,24 @@
-
-.messageWrapper{
+.message__wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-right: 55px;
-
+    padding: 5px 30px;
 }
-.iconsStyle{
+
+.message__iconWrapper {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
+}
+.message__removeIcon {
+    padding: 0 10px;
+}
+.message__text {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-right: 10px;
+}
+.message__myText{
+    width: 100%;
 }
