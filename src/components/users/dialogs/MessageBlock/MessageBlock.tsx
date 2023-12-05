@@ -17,12 +17,8 @@ export const MessageBlock = (props: Props) => {
             <Card>{data?.items.map(el=>{
                 return(
                         <Message
-                        body={el.body}
-                        messageId={el.id}
-                        iconId={{
-                            picther: 'picther',
-                            github:'github'
-                            }}
+                            body={el.body}
+                            messageId={el.id}
                         />
                 )
             })}</Card>

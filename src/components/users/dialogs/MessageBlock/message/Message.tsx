@@ -1,31 +1,41 @@
-import {useDialogViewedQuery} from "../../../../../services/dialogsApi.ts";
-import sprite from '../../../../../assets/sprite.svg'
+import {useDialogViewedQuery, useRemoveDialogMutation} from "../../../../../services/dialogsApi.ts";
 import s from './Message.module.css'
+import {ViewedMessage} from "../../../../../assets/ViewedMessage.tsx";
+import {MessageNotViewed} from "../../../../../assets/MessageNotViewed.tsx";
+import {Remote} from "../../../../../assets/Remote.tsx";
+
 
 
 
 type Props={
     body:string
     messageId:string
-    iconId: object
 }
 export const Message = (props:Props) => {
 
-    const {data: messageViewed} = useDialogViewedQuery(props.messageId)
-    console.log(`messageId ${props.messageId}`)
-    console.log(`data ${messageViewed}`)
+    const {data: messageViewed, isLoading} = useDialogViewedQuery(props.messageId)
+    const [removeMessage] = useRemoveDialogMutation()
+
 
     return (
-        <div>
+        <div className={s.messageWrapper}>
             {props.body}
-            {messageViewed ?
-                <svg className={s.svgIcon} xmlns="http://www.w3.org/2000/svg" width="63" height="72" viewBox="0 0 63 72" fill="none">
-                    <use xlinkHref={`${sprite}#${props.iconId}`}/>
-                </svg>
-                :
-                <svg>
-                    <use xlinkHref={`${sprite}#${props.iconId}`}/>
-                </svg>}
+            {isLoading? (<span>загрузка</span>):
+                messageViewed ?
+                    <div className={s.iconsStyle}>
+                        <ViewedMessage />
+                        <Remote callback={()=>removeMessage(props.messageId)}/>
+                    </div>
+
+                        :
+                    <div className={s.iconsStyle}>
+                        <MessageNotViewed/>
+                        <Remote callback={()=>removeMessage(props.messageId)}/>
+                    </div>
+
+                }
+
+
         </div>
     );
 };

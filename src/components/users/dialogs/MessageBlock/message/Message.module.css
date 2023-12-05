@@ -1,3 +1,13 @@
-.svgIcon{
 
+.messageWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 55px;
+
+}
+.iconsStyle{
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }

@@ -36,6 +36,8 @@ const dialogsApi = baseApi.injectEndpoints({
                         body: {body: body.text},
                     }
                 },
+                providesTags: ['dialogs']
+
             }),
             getDialogWithFriend: build.query<any, Partial<dialogsWithFriendsParams>>({
                 query: (params) => {
@@ -51,7 +53,16 @@ const dialogsApi = baseApi.injectEndpoints({
                     }
                 },
             }),
+            RemoveDialog: build.mutation<any, any>({
+                query: (messageId) => {
+                    return {
+                        url: `/dialogs/messages/${messageId}`,
+                        method: "DELETE"
+                    }
+                },
+                providesTags: ['dialogs']
+            }),
         }
     }
 })
-export const {useGetAllDialogsQuery,useSendMessageMyFriendMutation, useGetDialogsByIdMutation, useGetDialogWithFriendQuery, useDialogViewedQuery} = dialogsApi
+export const {useGetAllDialogsQuery,useSendMessageMyFriendMutation, useGetDialogsByIdMutation, useGetDialogWithFriendQuery, useDialogViewedQuery, useRemoveDialogMutation} = dialogsApi
