@@ -1,41 +1,61 @@
 .appWrapper {
-    height: 100vh;
-    display: grid;
-    grid-template-rows: 50px 1fr;
-    grid-template-columns: 2fr 10fr;
-    grid-template-areas:
-            "h h"
-            "n c";
-}
-.appWrapper__header{
-    display: flex;
-    justify-content: space-between;
-    background-color: #75e03f;
-
-    grid-area: h;
-}
-.appWrapper__nav{
-    background-color: #e03f5d;
-
     display: flex;
     flex-direction: column;
-    grid-area: n;
-    align-items: center;
+    min-height: calc(100vh - 50px);
+    height: max-content;
 }
-.header__section{
+
+.appWrapper__header {
+    background-color: #222222;
+}
+
+.appWrapper__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 200px;
+    padding: 20px 0;
+    gap: 12px;
+}
+
+.header__section {
     display: flex;
     align-items: center;
-    border: 1px solid red;
-    width: 100%;
-
+    width: 80%;
 }
-.header__menu{
+
+.header__menu {
     display: flex;
     justify-content: space-between;
-    border: 1px solid yellow;
     width: 100%;
 }
-.appWrapper__content{
-    background-color: #3fb1e0;
-    grid-area: c;
+
+.appWrapper__content {
+    width: 100%;
+}
+
+.appWrapper__headerContent {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+    height: 40px;
+    padding: 5px;
+}
+
+.header__logo {
+    width: 50px;
+}
+
+.appWrapper__navPlusContent {
+    padding-top: 20px;
+    width: 100%;
+    min-height: calc(100vh - 100px);
+    height: max-content;
+}
+.appWrapper__mainContent{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    margin: 0 auto;
 }
