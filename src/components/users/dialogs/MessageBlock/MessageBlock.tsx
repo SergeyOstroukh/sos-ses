@@ -19,6 +19,7 @@ export const MessageBlock = (props: Props) => {
                         <Message
                             body={el.body}
                             messageId={el.id}
+                            userId={el.senderId}
                         />
                 )
             })}</Card>
