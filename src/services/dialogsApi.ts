@@ -1,7 +1,7 @@
 import {baseApi} from "./baseApi.ts";
 import {
     allMessages,
-    dialogsWithFriendsParams,
+    dialogsWithFriendsParams, dialogWithFriendResponce,
     sendMessage,
     sendMessageResponce,
     startChatting
@@ -39,7 +39,7 @@ const dialogsApi = baseApi.injectEndpoints({
                 invalidatesTags: ['dialogs']
 
             }),
-            getDialogWithFriend: build.query<any, Partial<dialogsWithFriendsParams>>({
+            getDialogWithFriend: build.query<dialogWithFriendResponce, Partial<dialogsWithFriendsParams>>({
                 query: (params) => {
                     return {
                         url: `/dialogs/${params.userId}/messages?page=1&count=10`,

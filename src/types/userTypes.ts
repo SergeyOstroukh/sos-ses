@@ -104,3 +104,19 @@ export type dialogsWithFriendsParams = {
 	page: number
 	count: number
 }
+
+export type dialogWithFriendResponce = {
+	items: Message[];
+	totalCount: number;
+	error?: string[];
+}
+export type Message = {
+	id: string;
+	body: string;
+	translatedBody?: string|null;
+	addedAt: string;
+	senderId: number;
+	senderName: string;
+	recipientId: number;
+	viewed: boolean;
+}
