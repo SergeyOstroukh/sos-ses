@@ -1,0 +1,43 @@
+.messageBlock__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.messageBlock__dialogInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 70px;
+  padding: 0 20px;
+
+  border: 1px solid #363738;
+  border-left: none;
+  border-top-right-radius: 15px;
+}
+
+.messageBlock__sendForm {
+  height: 70px;
+  border: 1px solid #363738;
+  border-bottom-right-radius: 15px;
+}
+
+.messageBlock__message {
+  height: 100%;
+  border-right: 1px solid #363738;
+}
+
+.messageBlock__userImage {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.messageBlock__description {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

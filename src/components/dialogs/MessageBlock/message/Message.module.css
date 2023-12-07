@@ -1,0 +1,36 @@
+.message__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 30px;
+}
+
+.message__iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.message__removeIcon {
+  padding: 0 10px;
+}
+
+.message__text {
+  width: 100%;
+  padding-right: 10px;
+}
+
+.message__time {
+  opacity: 0.5;
+}
+
+.message__userPhoto {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.message__oneMessage {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}

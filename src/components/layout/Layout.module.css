@@ -1,0 +1,64 @@
+.appWrapper {
+  display: flex;
+  flex-direction: column;
+  height: max-content;
+  min-height: calc(100vh - 50px);
+}
+
+.appWrapper__header {
+  background-color: #222;
+}
+
+.appWrapper__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+
+  width: 200px;
+  padding: 20px 0;
+}
+
+.header__section {
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+
+.header__menu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.appWrapper__content {
+  width: 100%;
+}
+
+.appWrapper__headerContent {
+  display: flex;
+  justify-content: space-between;
+
+  width: 70%;
+  height: 40px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.header__logo {
+  width: 50px;
+}
+
+.appWrapper__navPlusContent {
+  width: 100%;
+  height: max-content;
+  min-height: calc(100vh - 100px);
+  padding-top: 20px;
+}
+
+.appWrapper__mainContent {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  margin: 0 auto;
+}

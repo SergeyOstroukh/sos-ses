@@ -1,57 +1,61 @@
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import {Button, CardActionArea, CardActions} from '@mui/material';
-import {Users} from "../../../types/userTypes.ts";
+import { NavLink } from 'react-router-dom'
+
+import { Users } from '@/assets/types/userTypes'
+import { useFollowUserMutation, useUnFollowUserMutation } from '@/services'
+import { Button, CardActionArea, CardActions } from '@mui/material'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import CardMedia from '@mui/material/CardMedia'
+import Typography from '@mui/material/Typography'
+
 import s from './UserCard.module.css'
-import {useFollowUserMutation, useUnFollowUserMutation} from "../../../services/usersApi.ts";
-import {NavLink} from "react-router-dom";
 
 type Props = {
-    user: Users
+  user: Users
 }
 export const UserCard = (props: Props) => {
-    const userImg = props.user.photos && props.user.photos.small ? props.user.photos.small : props.user.photos && props.user.photos.large;
-    const [followUser] = useFollowUserMutation()
-    const [unFollowUser] = useUnFollowUserMutation()
+  const userImg =
+    props.user.photos && props.user.photos.small
+      ? props.user.photos.small
+      : props.user.photos && props.user.photos.large
+  const [followUser] = useFollowUserMutation()
+  const [unFollowUser] = useUnFollowUserMutation()
 
-
-    return (
-        <Card className={s.card} sx={{ width: 200, height: 300, }} >
-            <CardActionArea>
-                <CardMedia
-                    component="img"
-                    height="140"
-                    image={userImg ? userImg : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZUgLbcQKW5YFFy8FMlC-OqVp40csGZeWWJA&usqp=CAU'}
-                    alt="avatar"
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        <NavLink
-                            to={`/profile/${props.user.id}`}>{props.user.name}
-                        </NavLink>
-                    </Typography>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {props.user.status}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
-            <CardActions>
-                {
-                    !props.user.followed?
-                        <div>
-                        <Button size="small" color="primary" onClick={()=>followUser(props.user.id)}>
-                            follow
-                        </Button>
-                        </div>
-                    :
-                        <Button size="small" color="primary" onClick={()=>unFollowUser(props.user.id)}>
-                            unFollow
-                        </Button>
-                }
-            </CardActions>
-        </Card>
-    );
-};
-
+  return (
+    <Card className={s.card} sx={{ height: 300, width: 200 }}>
+      <CardActionArea>
+        <CardMedia
+          alt={'avatar'}
+          component={'img'}
+          height={'140'}
+          image={
+            userImg
+              ? userImg
+              : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZUgLbcQKW5YFFy8FMlC-OqVp40csGZeWWJA&usqp=CAU'
+          }
+        />
+        <CardContent>
+          <Typography component={'div'} gutterBottom variant={'h5'}>
+            <NavLink to={`/profile/${props.user.id}`}>{props.user.name}</NavLink>
+          </Typography>
+          <Typography component={'div'} gutterBottom variant={'h5'}>
+            {props.user.status}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        {!props.user.followed ? (
+          <div>
+            <Button color={'primary'} onClick={() => followUser(props.user.id)} size={'small'}>
+              follow
+            </Button>
+          </div>
+        ) : (
+          <Button color={'primary'} onClick={() => unFollowUser(props.user.id)} size={'small'}>
+            unFollow
+          </Button>
+        )}
+      </CardActions>
+    </Card>
+  )
+}
