@@ -1,6 +1,6 @@
 import { Navigate, Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom'
 
-import { AuthLogin, Dialogs, Friends, Layout, Profile, Users } from '@/components'
+import { Dialogs, Friends, Layout, Profile, Users } from '@/components'
 import { useGetAuthMeQuery } from '@/services/API'
 
 const router = createBrowserRouter([
@@ -33,10 +33,10 @@ const router = createBrowserRouter([
   },
   {
     children: [
-      {
-        element: <AuthLogin />,
-        path: 'login',
-      },
+      // {
+      //   element: <AuthLogin />,
+      //   path: 'login',
+      // },
       // {
       //     path: 'signup',
       //     element: <SignUpPage />,
