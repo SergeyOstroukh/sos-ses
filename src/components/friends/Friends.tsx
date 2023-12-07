@@ -1,9 +1,3 @@
-
 export const Friends = () => {
-    return (
-        <div>
-
-        </div>
-    );
-};
-
+  return <div></div>
+}
