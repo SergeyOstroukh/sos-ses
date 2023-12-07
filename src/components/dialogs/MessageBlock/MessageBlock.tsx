@@ -42,8 +42,19 @@ export const MessageBlock = (props: Props) => {
       </div>
       <div className={s.messageBlock__message}>
         {data?.items.map(el => {
-          return <Message body={el.body} key={el.id} messageId={el.id} userId={el.senderId} />
+          return (
+            <Message
+              body={el.body}
+              key={el.id}
+              messageId={el.id}
+              time={el.addedAt}
+              userId={el.senderId}
+            />
+          )
         })}
+        {data?.items.length === 0 && (
+          <div className={s.messageBlock__description}>начните диалог</div>
+        )}
       </div>
       <div className={s.messageBlock__sendForm}></div>
     </div>

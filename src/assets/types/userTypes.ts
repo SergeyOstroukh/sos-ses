@@ -57,7 +57,7 @@ export type authMeData = {
 }
 export type sendMessage = {
   text: string
-  userId: number
+  userId: string
 }
 export type sendMessageDataResponce = {
   message: {

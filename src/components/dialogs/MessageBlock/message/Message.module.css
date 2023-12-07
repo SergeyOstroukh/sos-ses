@@ -16,12 +16,21 @@
 }
 
 .message__text {
-  display: flex;
-  justify-content: flex-end;
   width: 100%;
   padding-right: 10px;
 }
 
-.message__myText {
+.message__time {
+  opacity: 0.5;
+}
+
+.message__userPhoto {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.message__oneMessage {
+  display: flex;
+  gap: 15px;
   width: 100%;
 }

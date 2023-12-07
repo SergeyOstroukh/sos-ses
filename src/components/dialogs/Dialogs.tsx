@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { MessageBlock } from '@/components'
 import { useGetAllDialogsQuery, useGetDialogsByIdMutation } from '@/services'
-import { formatDistanceToNow } from 'date-fns'
+import { formatRelative, subDays } from 'date-fns'
 
 import s from './Dialogs.module.css'
 
@@ -24,7 +24,7 @@ export const Dialogs = () => {
     <div className={s.dialogs__wrapper}>
       <div className={s.dialogs__usersBlock}>
         {data?.map(el => {
-          const distance = formatDistanceToNow(new Date(el.lastUserActivityDate))
+          const distance = formatRelative(subDays(new Date(el.lastUserActivityDate), 3), new Date())
           const userImg =
             el?.photos && el?.photos.small ? el?.photos.small : el?.photos && el?.photos.large
 
