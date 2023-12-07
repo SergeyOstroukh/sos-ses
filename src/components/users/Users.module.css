@@ -12,3 +12,29 @@
   flex-direction: column;
   align-items: center;
 }
+
+.user__search {
+  cursor: text;
+  resize: none;
+
+  overflow: hidden auto;
+
+  box-sizing: border-box;
+  width: 500px;
+  min-height: 36px;
+  max-height: 200px;
+  margin-bottom: 0;
+  padding: 9px 106px 10px 13px;
+
+  line-height: 17px;
+  color: white;
+  word-wrap: break-word;
+
+  background-color: inherit;
+  border: 1px solid #363738;
+  border-radius: 6px;
+  outline: 0;
+  caret-color: white;
+
+  transition: border-bottom-color 0.3s linear;
+}

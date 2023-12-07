@@ -12,6 +12,7 @@ export const Users = () => {
     page: 1,
     term: '',
   })
+
   const searchUserHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setParams({ ...params, term: e.currentTarget.value })
   }
@@ -24,7 +25,7 @@ export const Users = () => {
 
   return (
     <div className={s.user__page}>
-      <input onChange={e => searchUserHandler(e)} value={params.term} />
+      <input className={s.user__search} onChange={e => searchUserHandler(e)} value={params.term} />
       <div className={s.users}>
         {users?.items.map(el => {
           return <UserCard key={el.id} user={el} />

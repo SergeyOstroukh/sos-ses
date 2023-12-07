@@ -1,5 +1,11 @@
+import { useState } from 'react'
+
 import { Message } from '@/components'
-import { useGetDialogWithFriendQuery, useGetUserProfileQuery } from '@/services'
+import {
+  useGetDialogWithFriendQuery,
+  useGetUserProfileQuery,
+  useSendMessageMyFriendMutation,
+} from '@/services'
 
 import s from './messageBlock.module.css'
 
@@ -14,6 +20,12 @@ export const MessageBlock = (props: Props) => {
   )
 
   const { data: userInfo, isLoading: userInfoLoading } = useGetUserProfileQuery(props.userId)
+  const [text, setText] = useState<string>('')
+  const [sendMessageForMyFriend] = useSendMessageMyFriendMutation()
+  const sendMessageHandler = (userId: number) => {
+    sendMessageForMyFriend({ text, userId })
+    setText('')
+  }
 
   if (isLoading) {
     return '...Loading'
@@ -56,7 +68,20 @@ export const MessageBlock = (props: Props) => {
           <div className={s.messageBlock__description}>начните диалог</div>
         )}
       </div>
-      <div className={s.messageBlock__sendForm}></div>
+      <div className={s.messageBlock__sendForm}>
+        <input
+          className={s.messageBlock__sendFormInput}
+          onChange={e => setText(e.currentTarget.value)}
+          placeholder={'Напишите сообщение...'}
+          value={text}
+        />
+        <button
+          className={s.messageBlock__sendFormButton}
+          onClick={() => sendMessageHandler(props.userId)}
+        >
+          Send
+        </button>
+      </div>
     </div>
   )
 }

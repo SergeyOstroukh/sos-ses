@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { MessageNotViewed, ViewedMessage } from '@/assets'
 import { MessageBlock } from '@/components'
 import { useGetAllDialogsQuery, useGetDialogsByIdMutation } from '@/services'
 import { formatRelative, subDays } from 'date-fns'

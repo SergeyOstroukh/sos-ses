@@ -16,8 +16,14 @@
 }
 
 .message__text {
+  overflow: hidden;
   width: 100%;
   padding-right: 10px;
+  word-wrap: break-word;
+}
+
+.message__paragraph {
+  max-width: 200px;
 }
 
 .message__time {
@@ -25,7 +31,8 @@
 }
 
 .message__userPhoto {
-  width: 50px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
 }
 

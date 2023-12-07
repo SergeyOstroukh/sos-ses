@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { MessageNotViewed, Remove, ViewedMessage } from '@/assets'
 import { useDialogViewedQuery, useGetUserProfileQuery, useRemoveDialogMutation } from '@/services'
@@ -13,6 +13,22 @@ type Props = {
   userId: number
 }
 export const Message = (props: Props) => {
+  const [isMobile, setIsMobile] = useState<boolean>(false)
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 1100px)')
+
+    const handleResize = (event: MediaQueryList | MediaQueryListEvent) => {
+      setIsMobile(event.matches)
+    }
+
+    handleResize(mediaQuery)
+    mediaQuery.addEventListener('change', handleResize)
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleResize)
+    }
+  }, [])
   const [hover, setHover] = useState(false)
   const { data: messageViewed, isLoading } = useDialogViewedQuery(props.messageId)
   const [removeMessage] = useRemoveDialogMutation()
@@ -45,10 +61,10 @@ export const Message = (props: Props) => {
           onMouseLeave={() => setHover(false)}
         >
           <div className={s.message__time}>{profile?.fullName}</div>
-          <div>{props.body}</div>
+          <p className={s.message__paragraph}>{props.body}</p>
         </div>
       </div>
-      {hover && (
+      {hover && !isMobile && (
         <div className={s.message__iconWrapper}>
           {distance}
           {messageViewed && <ViewedMessage />}
