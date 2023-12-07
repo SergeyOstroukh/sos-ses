@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 import { Message } from '@/components'
 import {
@@ -14,6 +14,17 @@ type Props = {
 }
 
 export const MessageBlock = (props: Props) => {
+  const messageRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (messageRef.current) {
+      const container = messageRef.current
+
+      setTimeout(() => {
+        container.scrollTop = container.scrollHeight
+      }, 0)
+    }
+  }, [messageRef.current?.scrollHeight])
   const { data, isLoading } = useGetDialogWithFriendQuery(
     { userId: props.userId },
     { pollingInterval: 3000 }
@@ -25,6 +36,12 @@ export const MessageBlock = (props: Props) => {
   const sendMessageHandler = (userId: number) => {
     sendMessageForMyFriend({ text, userId })
     setText('')
+  }
+  const onEnter = (userId: number, e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      sendMessageForMyFriend({ text, userId })
+      setText('')
+    }
   }
 
   if (isLoading) {
@@ -52,7 +69,7 @@ export const MessageBlock = (props: Props) => {
           }
         />
       </div>
-      <div className={s.messageBlock__message}>
+      <div className={s.messageBlock__message} ref={messageRef}>
         {data?.items.map(el => {
           return (
             <Message
@@ -68,20 +85,23 @@ export const MessageBlock = (props: Props) => {
           <div className={s.messageBlock__description}>начните диалог</div>
         )}
       </div>
-      <div className={s.messageBlock__sendForm}>
-        <input
-          className={s.messageBlock__sendFormInput}
-          onChange={e => setText(e.currentTarget.value)}
-          placeholder={'Напишите сообщение...'}
-          value={text}
-        />
-        <button
-          className={s.messageBlock__sendFormButton}
-          onClick={() => sendMessageHandler(props.userId)}
-        >
-          Send
-        </button>
-      </div>
+      {data?.items.length !== 0 && (
+        <div className={s.messageBlock__sendForm}>
+          <input
+            className={s.messageBlock__sendFormInput}
+            onChange={e => setText(e.currentTarget.value)}
+            onKeyDown={e => onEnter(props.userId, e)}
+            placeholder={'Напишите сообщение...'}
+            value={text}
+          />
+          <button
+            className={s.messageBlock__sendFormButton}
+            onClick={() => sendMessageHandler(props.userId)}
+          >
+            Send
+          </button>
+        </div>
+      )}
     </div>
   )
 }

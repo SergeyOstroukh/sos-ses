@@ -2,7 +2,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   width: 100%;
+  min-width: 500px;
 }
 
 .messageBlock__dialogInfo {
@@ -58,15 +60,13 @@
   transition: border-bottom-color 0.3s linear;
 }
 
-.messageBlock__sendFormButton {
-}
-
 .messageBlock__message {
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 
   height: 100%;
+  padding-top: 20px;
 
   border-right: 1px solid #363738;
   border-left: 1px solid #363738;

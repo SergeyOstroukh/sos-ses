@@ -33,6 +33,13 @@
 
 .appWrapper__content {
   width: 100%;
+  min-width: 500px;
+  height: calc(100vh - 100px);
+  min-height: 500px;
+
+  background-color: #222;
+  border: 1px solid #363738;
+  border-radius: 15px;
 }
 
 .appWrapper__headerContent {
@@ -40,6 +47,7 @@
   justify-content: space-between;
 
   width: 70%;
+  min-width: 925px;
   height: 40px;
   margin: 0 auto;
   padding: 5px;
@@ -50,7 +58,6 @@
 }
 
 .appWrapper__navPlusContent {
-  width: 100%;
   height: max-content;
   min-height: calc(100vh - 100px);
   padding-top: 20px;
@@ -59,6 +66,8 @@
 .appWrapper__mainContent {
   display: flex;
   flex-direction: row;
+
   width: 70%;
+  min-width: 925px;
   margin: 0 auto;
 }

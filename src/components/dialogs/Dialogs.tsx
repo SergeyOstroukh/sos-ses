@@ -42,7 +42,7 @@ export const Dialogs = () => {
               />
               <div className={s.dialogs__usersInfo}>
                 <div>{el.userName}</div>
-                <div>last activity: {distance}</div>
+                <div className={s.dialogs__lastActivity}>last activity: {distance}</div>
               </div>
               {/*{*/}
               {/*    el.hasNewMessages && `have a new message ${<MessageBlock userId={el.id}/>}`*/}
