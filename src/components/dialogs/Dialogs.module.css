@@ -1,5 +1,5 @@
 .dialogs__usersPhoto {
-  width: 30%;
+  width: 40px;
   border-radius: 50%;
 }
 
@@ -11,23 +11,23 @@
   gap: 5px;
   align-items: center;
 
-  height: 70px;
-  padding: 20px;
+  height: 50px;
+  padding: 10px;
 
   border: 1px solid #363738;
 }
 
 .dialogs__wrapper {
   display: flex;
-  background-color: #222;
-  border: 1px solid #363738;
-  border-radius: 15px;
+  width: 100%;
+  height: 100%;
 }
 
 .dialogs__usersBlock {
   display: flex;
   flex-direction: column;
 
+  min-width: 258px;
   height: 100%;
 
   border: 1px solid #363738;
@@ -47,4 +47,9 @@
 .dialogs__usersInfo {
   display: flex;
   flex-direction: column;
+}
+
+.dialogs__lastActivity {
+  font-size: 12px;
+  opacity: 0.5;
 }

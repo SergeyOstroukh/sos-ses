@@ -5,12 +5,31 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
   line-height: 1.5;
+  color: white;
   text-rendering: optimizelegibility;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   font-synthesis: none;
+
+  /* Для WebKit-браузеров (Chrome, Safari) */
+  ::-webkit-scrollbar {
+    width: 6px; /* Ширина скроллбара */
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgb(54 55 56 / 50%); /* Полупрозрачный цвет фона трека скроллбара */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #363738; /* Цвет ползунка скроллбара */
+    border-radius: 4px; /* Скругление углов ползунка */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2c2d2e; /* Цвет ползунка скроллбара при наведении */
+  }
 }
 
 a {
@@ -60,19 +79,4 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #dddfe2;
-    background-color: #fff;
-  }
-
-  a:hover {
-    color: #dddfe2;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
 }

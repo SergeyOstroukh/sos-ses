@@ -1,29 +1,39 @@
 .message__wrapper {
+  position: relative;
+
   display: flex;
-  align-items: center;
+  gap: 20px;
   justify-content: space-between;
-  padding: 5px 30px;
+
+  padding: 0 30px;
+}
+
+.message__iconWrapperHover {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+
+  width: 50px;
+  min-width: 50px;
+
+  visibility: hidden;
 }
 
 .message__iconWrapper {
   display: flex;
+  gap: 5px;
   align-items: center;
-  justify-content: space-between;
-}
 
-.message__removeIcon {
-  padding: 0 10px;
+  width: 50px;
+  min-width: 50px;
+
+  visibility: visible;
 }
 
 .message__text {
-  overflow: hidden;
-  width: 100%;
+  width: 85%;
   padding-right: 10px;
   word-wrap: break-word;
-}
-
-.message__paragraph {
-  max-width: 200px;
 }
 
 .message__time {
@@ -36,8 +46,8 @@
   border-radius: 50%;
 }
 
-.message__oneMessage {
-  display: flex;
-  gap: 15px;
-  width: 100%;
+@media (width <= 1920px) {
+  .message__text {
+    width: 60%;
+  }
 }
